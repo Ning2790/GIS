@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>前端风格候选 · 青海旅游 + 农产品平台</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif;
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+      .page-head {
+        padding: 28px 32px 8px;
+      }
+      .page-head h1 { margin: 0 0 6px; font-size: 22px; }
+      .page-head p { margin: 0; color: #64748b; font-size: 14px; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px 32px 48px;
+        align-items: start;
+      }
+      @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+      .scheme {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+      }
+      .scheme-head { padding: 16px 18px 12px; color: #fff; }
+      .scheme-head h2 { margin: 0 0 4px; font-size: 17px; }
+      .scheme-head p { margin: 0; font-size: 12.5px; opacity: 0.85; }
+      .scheme-body { padding: 18px; }
+      .block-title {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.55;
+        margin: 16px 0 8px;
+        font-weight: 600;
+      }
+      .block-title:first-child { margin-top: 0; }
+      .swatches { display: flex; gap: 6px; }
+      .swatch {
+        flex: 1;
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: 9px;
+        padding-bottom: 3px;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      }
+      .typo-demo { font-size: 13px; line-height: 1.5; }
+      .typo-demo .t1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+      .typo-demo .t2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+      .typo-demo .t3 { font-size: 12px; opacity: 0.6; margin: 0; }
+      .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+      .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 9px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .btn.ghost { background: transparent; }
+      .input-demo {
+        width: 100%;
+        padding: 9px 12px;
+        border-radius: 8px;
+        border: 1px solid;
+        font-size: 13px;
+        font-family: inherit;
+        margin-bottom: 8px;
+        outline: none;
+      }
+      .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+      .tag {
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      .demo-card {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid;
+      }
+      .demo-cover {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #fff;
+        letter-spacing: 0.1em;
+      }
+      .demo-card-body { padding: 12px 14px; }
+      .demo-card-body h4 { margin: 0 0 4px; font-size: 14px; }
+      .demo-card-body p { margin: 0 0 8px; font-size: 12px; opacity: 0.65; line-height: 1.45; }
+      .demo-card-foot { display: flex; align-items: center; justify-content: space-between; }
+      .price { font-weight: 700; font-size: 15px; }
+      .topbar-demo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .topbar-demo nav { display: flex; gap: 14px; font-weight: 400; font-size: 12.5px; }
+
+      /* ============ A · 高原青绿 ============ */
+      .A { background: #ffffff; }
+      .A .scheme-head { background: linear-gradient(120deg, #0e7490, #14b8a6); }
+      .A .swatch.c1 { background: #0e7490; }
+      .A .swatch.c2 { background: #14b8a6; }
+      .A .swatch.c3 { background: #84cc16; }
+      .A .swatch.c4 { background: #f8fafc; color: #475569; text-shadow: none; }
+      .A .swatch.c5 { background: #0f172a; }
+      .A .swatch.c6 { background: #e2e8f0; color: #475569; text-shadow: none; }
+      .A .btn.primary { background: #0e7490; color: #fff; }
+      .A .btn.ghost { color: #0e7490; border: 1px solid #bae6fd; }
+      .A .input-demo { border-color: #cbd5e1; background: #fff; color: #0f172a; }
+      .A .tag { background: #ecfeff; color: #0e7490; }
+      .A .demo-card { border-color: #e2e8f0; background: #fff; }
+      .A .demo-cover { background: linear-gradient(120deg, #0891b2, #2dd4bf); }
+      .A .price { color: #0e7490; }
+      .A .topbar-demo { background: #f0fdfa; color: #0e7490; border: 1px solid #ccfbf1; }
+
+      /* ============ B · 暖阳高原 ============ */
+      .B { background: #fffbf2; }
+      .B .scheme-head { background: linear-gradient(120deg, #9a3412, #d97706); }
+      .B .swatch.c1 { background: #9a3412; }
+      .B .swatch.c2 { background: #d97706; }
+      .B .swatch.c3 { background: #eab308; }
+      .B .swatch.c4 { background: #fffbf2; color: #78350f; text-shadow: none; }
+      .B .swatch.c5 { background: #431407; }
+      .B .swatch.c6 { background: #fde68a; color: #78350f; text-shadow: none; }
+      .B .btn.primary { background: #b45309; color: #fff; }
+      .B .btn.ghost { color: #b45309; border: 1px solid #fde68a; }
+      .B .input-demo { border-color: #e7d8bd; background: #fff; color: #431407; }
+      .B .tag { background: #fef3c7; color: #92400e; }
+      .B .demo-card { border-color: #f0e0c0; background: #fff; }
+      .B .demo-cover { background: linear-gradient(120deg, #b45309, #f59e0b); }
+      .B .price { color: #b45309; }
+      .B .topbar-demo { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+      /* ============ C · 现代极简 ============ */
+      .C { background: #ffffff; }
+      .C .scheme-head { background: linear-gradient(120deg, #0f172a, #1d4ed8); }
+      .C .swatch.c1 { background: #1d4ed8; }
+      .C .swatch.c2 { background: #06b6d4; }
+      .C .swatch.c3 { background: #0f172a; }
+      .C .swatch.c4 { background: #f8fafc; color: #475569; text-shadow: none; }
+      .C .swatch.c5 { background: #334155; }
+      .C .swatch.c6 { background: #e2e8f0; color: #475569; text-shadow: none; }
+      .C .btn.primary { background: #1d4ed8; color: #fff; }
+      .C .btn.ghost { color: #1d4ed8; border: 1px solid #bfdbfe; }
+      .C .input-demo { border-color: #cbd5e1; background: #f8fafc; color: #0f172a; }
+      .C .tag { background: #e0f2fe; color: #0369a1; }
+      .C .demo-card { border-color: #e2e8f0; background: #fff; }
+      .C .demo-cover { background: linear-gradient(120deg, #1e3a8a, #0ea5e9); }
+      .C .price { color: #1d4ed8; }
+      .C .topbar-demo { background: #0f172a; color: #f8fafc; border: none; }
+
+      .foot-note {
+        padding: 0 32px 40px;
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .foot-note code { background: #e2e8f0; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="page-head">
+      <h1>前端风格候选（三选一，也可混搭）</h1>
+      <p>同一套组件（按钮 / 输入框 / 标签 / 卡片 / 顶栏）在三种风格下的实际效果对比，供定基调用。</p>
+    </div>
+
+    <div class="grid">
+      <!-- ================= A ================= -->
+      <section class="scheme A">
+        <div class="scheme-head">
+          <h2>A · 高原青绿</h2>
+          <p>青海湖青蓝 + 草原绿点缀，干净清爽、留白充足 —— 旅游产品的主流气质，辨识度与亲和力兼顾。</p>
+        </div>
+        <div class="scheme-body">
+          <p class="block-title">色板</p>
+          <div class="swatches">
+            <div class="swatch c1">主色</div>
+            <div class="swatch c2">辅色</div>
+            <div class="swatch c3">点缀</div>
+            <div class="swatch c4">背景</div>
+            <div class="swatch c5">文字</div>
+            <div class="swatch c6">边框</div>
+          </div>
+
+          <p class="block-title">字体层次</p>
+          <div class="typo-demo">
+            <p class="t1">青海湖 · 二郎剑景区</p>
+            <p class="t2">环湖公路约 360 公里</p>
+            <p class="t3">中国最大内陆咸水湖，7-8 月最宜</p>
+          </div>
+
+          <p class="block-title">按钮</p>
+          <div class="btn-row">
+            <button class="btn primary">立即预订</button>
+            <button class="btn ghost">加入行程</button>
+          </div>
+
+          <p class="block-title">表单</p>
+          <input class="input-demo" placeholder="手机号" />
+          <input class="input-demo" placeholder="密码" type="password" />
+
+          <p class="block-title">标签</p>
+          <div class="tag-row">
+            <span class="tag">高原反应提示</span><span class="tag">自驾推荐</span><span class="tag">门票</span>
+          </div>
+
+          <p class="block-title">卡片 / 顶栏</p>
+          <div class="demo-card">
+            <div class="demo-cover">青海湖 · 封面图</div>
+            <div class="demo-card-body">
+              <h4>青海湖门票（二郎剑）</h4>
+              <p>旺季建议提前预订，含景区摆渡车</p>
+              <div class="demo-card-foot"><span class="price">￥100</span><span class="tag">在售</span></div>
+            </div>
+          </div>
+          <div style="height: 10px"></div>
+          <div class="topbar-demo"><span>青海旅游</span><nav><span>景点</span><span>商城</span><span>AI 助手</span></nav></div>
+        </div>
+      </section>
+
+      <!-- ================= B ================= -->
+      <section class="scheme B">
+        <div class="scheme-head">
+          <h2>B · 暖阳高原</h2>
+          <p>赭红 + 暖橙金，高原阳光与在地文化感 —— 与农产品 / 民俗契合度高，更"人情味"，配色需控制数量防显旧。</p>
+        </div>
+        <div class="scheme-body">
+          <p class="block-title">色板</p>
+          <div class="swatches">
+            <div class="swatch c1">主色</div>
+            <div class="swatch c2">辅色</div>
+            <div class="swatch c3">点缀</div>
+            <div class="swatch c4">背景</div>
+            <div class="swatch c5">文字</div>
+            <div class="swatch c6">边框</div>
+          </div>
+
+          <p class="block-title">字体层次</p>
+          <div class="typo-demo">
+            <p class="t1">青海湖 · 二郎剑景区</p>
+            <p class="t2">环湖公路约 360 公里</p>
+            <p class="t3">中国最大内陆咸水湖，7-8 月最宜</p>
+          </div>
+
+          <p class="block-title">按钮</p>
+          <div class="btn-row">
+            <button class="btn primary">立即预订</button>
+            <button class="btn ghost">加入行程</button>
+          </div>
+
+          <p class="block-title">表单</p>
+          <input class="input-demo" placeholder="手机号" />
+          <input class="input-demo" placeholder="密码" type="password" />
+
+          <p class="block-title">标签</p>
+          <div class="tag-row">
+            <span class="tag">高原反应提示</span><span class="tag">自驾推荐</span><span class="tag">门票</span>
+          </div>
+
+          <p class="block-title">卡片 / 顶栏</p>
+          <div class="demo-card">
+            <div class="demo-cover">青海湖 · 封面图</div>
+            <div class="demo-card-body">
+              <h4>青海湖门票（二郎剑）</h4>
+              <p>旺季建议提前预订，含景区摆渡车</p>
+              <div class="demo-card-foot"><span class="price">￥100</span><span class="tag">在售</span></div>
+            </div>
+          </div>
+          <div style="height: 10px"></div>
+          <div class="topbar-demo"><span>青海旅游</span><nav><span>景点</span><span>商城</span><span>AI 助手</span></nav></div>
+        </div>
+      </section>
+
+      <!-- ================= C ================= -->
+      <section class="scheme C">
+        <div class="scheme-head">
+          <h2>C · 现代极简</h2>
+          <p>深蓝 + 亮青，大色块与描边卡片 —— 互联网产品的锐利现代感，后台管理端尤其耐看。</p>
+        </div>
+        <div class="scheme-body">
+          <p class="block-title">色板</p>
+          <div class="swatches">
+            <div class="swatch c1">主色</div>
+            <div class="swatch c2">辅色</div>
+            <div class="swatch c3">点缀</div>
+            <div class="swatch c4">背景</div>
+            <div class="swatch c5">文字</div>
+            <div class="swatch c6">边框</div>
+          </div>
+
+          <p class="block-title">字体层次</p>
+          <div class="typo-demo">
+            <p class="t1">青海湖 · 二郎剑景区</p>
+            <p class="t2">环湖公路约 360 公里</p>
+            <p class="t3">中国最大内陆咸水湖，7-8 月最宜</p>
+          </div>
+
+          <p class="block-title">按钮</p>
+          <div class="btn-row">
+            <button class="btn primary">立即预订</button>
+            <button class="btn ghost">加入行程</button>
+          </div>
+
+          <p class="block-title">表单</p>
+          <input class="input-demo" placeholder="手机号" />
+          <input class="input-demo" placeholder="密码" type="password" />
+
+          <p class="block-title">标签</p>
+          <div class="tag-row">
+            <span class="tag">高原反应提示</span><span class="tag">自驾推荐</span><span class="tag">门票</span>
+          </div>
+
+          <p class="block-title">卡片 / 顶栏</p>
+          <div class="demo-card">
+            <div class="demo-cover">青海湖 · 封面图</div>
+            <div class="demo-card-body">
+              <h4>青海湖门票（二郎剑）</h4>
+              <p>旺季建议提前预订，含景区摆渡车</p>
+              <div class="demo-card-foot"><span class="price">￥100</span><span class="tag">在售</span></div>
+            </div>
+          </div>
+          <div style="height: 10px"></div>
+          <div class="topbar-demo"><span>青海旅游</span><nav><span>景点</span><span>商城</span><span>AI 助手</span></nav></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="foot-note">
+      <strong>怎么用：</strong>浏览器直接打开本文件即可（<code>frontend/design/preview.html</code>，双击或拖进浏览器）。<br />
+      挑定一套（或说"用 A 但主色换 XX""混 B 的暖色 + C 的卡片"都可以），我把它固化成设计规范（CSS 变量 / 组件样式），
+      后续所有页面统一按它开发。<br />
+      如果你有心仪的参考产品（网址 / 截图）或指定色值，直接给我，比选小样更准。
+    </div>
+  </body>
+</html>

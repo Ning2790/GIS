@@ -1,0 +1,15 @@
+{
+  "name": "qh-platform-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "青海旅游 + 农产品平台 —— 前端（pnpm workspace）",
+  "scripts": {
+    "dev:tourist": "pnpm --filter @qh/tourist dev",
+    "dev:console": "pnpm --filter @qh/console dev",
+    "dev:portal": "pnpm --filter @qh/portal dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "packageManager": "pnpm@12.11.2"
+}

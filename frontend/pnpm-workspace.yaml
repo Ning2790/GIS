@@ -1,0 +1,10 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "../e2e"
+
+# pnpm 默认拦截依赖的安装脚本（防供应链攻击）。
+# esbuild 需要执行 postinstall 放置二进制文件，故显式放行；否则 vite 无法运行。
+# 新增此类依赖时在此追加，值为 true 表示允许其安装脚本。
+allowBuilds:
+  esbuild: true

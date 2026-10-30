@@ -1,0 +1,15 @@
+/* 管理控制台主题：Element Plus 变量对齐 C · 现代极简（与 @qh/ui 设计基线同源）。 */
+
+:root {
+  --el-color-primary: #1d4ed8;
+  --el-color-primary-light-3: #4f75e0;
+  --el-color-primary-light-5: #7c98e8;
+  --el-color-primary-light-7: #a9bcf0;
+  --el-color-primary-light-8: #bfcef4;
+  --el-color-primary-light-9: #eff6ff;
+  --el-color-primary-dark-2: #1a42b7;
+  --el-border-radius-base: 8px;
+  --el-font-family: var(--qh-font);
+  --el-text-color-primary: #0f172a;
+  --el-text-color-regular: #334155;
+}

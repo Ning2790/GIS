@@ -1,0 +1,62 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# ---- Node / 前端 ----
+node_modules/
+dist/
+.vite/
+
+# ---- C++ ----
+build/
+*.o
+*.obj
+*.so
+*.pyd
+
+# ---- 环境与密钥（绝不提交）----
+.env
+.env.local
+.env.prod
+*.pem
+*.key
+# 自签 / 正式证书目录（由 deploy/gen-self-signed-cert.sh 生成）
+deploy/nginx/certs/
+
+# ---- 本地数据库文件 ----
+*.db
+*.sqlite3
+
+# ---- 运行时数据卷 ----
+data/
+pgdata/
+miniodata/
+
+# ---- 编辑器 / 系统 ----
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# ---- 本地工具与练习目录（不提交）----
+.zcode/
+_gittest/
+
+# 测试覆盖率产物（N7）
+.coverage
+.coverage.*
+htmlcov/
+
+# 浏览器端 E2E 产物（N6）
+e2e/.tmp/
+e2e/test-results/
+e2e/playwright-report/
+# 答辩 PPT 产物不入库（按约定由构建脚本生成：docs/答辩PPT-构建脚本.js）
+docs/答辩PPT.pptx
+# 备份产物（N16）：本地演练 / 运维产出，不入库
+backups/

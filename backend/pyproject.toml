@@ -1,0 +1,60 @@
+[project]
+name = "qh-platform-backend"
+version = "0.1.0"
+description = "青海旅游 + 农产品平台 —— 后端（FastAPI 模块化单体）"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "sqlalchemy>=2.0.36",
+    "alembic>=1.14",
+    "pydantic-settings>=2.6",
+    "pyjwt>=2.9",
+    "bcrypt>=4.2",
+    "psycopg[binary]>=3.2",
+    "httpx>=0.28.1",
+    "redis>=8.1.0",
+    "celery>=5.6.3",
+    "pybind11>=3.1.0",
+    "minio>=7.2.20",
+    "python-multipart>=0.0.32",
+    "prometheus-client>=0.26.0",
+    "pillow>=12.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "ninja>=1.13.2",
+    "pytest>=8.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+# Alembic 自动生成的迁移文件不参与 lint / 格式化：重新生成必然与格式规则不一致，
+# 逐个人工格式化反而制造无意义的 diff。
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+# 覆盖率（N7）：只统计 app/ 下的业务代码（scripts / alembic / 测试自身不计入）。
+# fail_under 取首次实测值（93%）下浮 5 个点，作为「只防倒退」的红线；
+# 新增模块后若覆盖率上升可手动上调。
+[tool.coverage.run]
+source = ["app"]
+
+[tool.coverage.report]
+fail_under = 88
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

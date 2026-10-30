@@ -1,0 +1,32 @@
+# 提交前自动格式化与检查，保证 5 人代码风格一致。
+# 首次使用：pip install pre-commit && pre-commit install
+repos:
+  # Python：ruff 做 lint + 格式化
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # 前端 / 通用：prettier
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+
+  # C++：clang-format（需本机已装 clang-format）
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v18.1.8
+    hooks:
+      - id: clang-format
+        types_or: [c++, c]
+
+  # 通用检查
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-added-large-files

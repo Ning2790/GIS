@@ -1,0 +1,95 @@
+/* ============================================================
+   C · 现代极简 —— 设计基线（青海旅游 + 农产品平台）
+   ------------------------------------------------------------
+   深蓝主色 + 亮青辅色，大色块与描边卡片。
+   约定：页面与组件只使用这里的变量，不写死色值 —— 换肤/微调只改本文件。
+   由 @qh/ui 的入口统一引入（import '@qh/ui' 即生效）。
+   ============================================================ */
+
+:root {
+  /* 品牌色 */
+  --qh-primary: #1d4ed8;
+  --qh-primary-hover: #1e40af;
+  --qh-primary-active: #1e3a8a;
+  --qh-primary-weak: #eff6ff;
+  --qh-primary-border: #bfdbfe;
+  --qh-accent: #06b6d4;
+  --qh-accent-weak: #e0f2fe;
+
+  /* 文字 */
+  --qh-ink: #0f172a;
+  --qh-ink-2: #334155;
+  --qh-muted: #64748b;
+  --qh-faint: #94a3b8;
+
+  /* 面 / 边框 / 底色 */
+  --qh-bg: #f8fafc;
+  --qh-surface: #ffffff;
+  --qh-border: #e2e8f0;
+  --qh-border-strong: #cbd5e1;
+
+  /* 语义色 */
+  --qh-success: #15803d;
+  --qh-success-bg: #f0fdf4;
+  --qh-warning: #b45309;
+  --qh-warning-bg: #fffbeb;
+  --qh-danger: #b91c1c;
+  --qh-danger-bg: #fef2f2;
+
+  /* 圆角 */
+  --qh-radius-sm: 8px;
+  --qh-radius: 10px;
+  --qh-radius-lg: 14px;
+  --qh-radius-pill: 999px;
+
+  /* 阴影 */
+  --qh-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --qh-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --qh-shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.1);
+
+  /* 间距（4 的倍数） */
+  --qh-space-1: 4px;
+  --qh-space-2: 8px;
+  --qh-space-3: 12px;
+  --qh-space-4: 16px;
+  --qh-space-5: 24px;
+  --qh-space-6: 32px;
+
+  /* 字体 / 字号 */
+  --qh-font: system-ui, -apple-system, 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --qh-fs-xs: 12px;
+  --qh-fs-sm: 13px;
+  --qh-fs-md: 14px;
+  --qh-fs-lg: 16px;
+  --qh-fs-xl: 20px;
+  --qh-fs-2xl: 24px;
+
+  /* 布局 */
+  --qh-container: 1024px;
+  --qh-container-narrow: 720px; /* 阅读型内容（详情正文）的窄列宽度 */
+  --qh-header-h: 56px;
+}
+
+/* ---------- 全局基线 ---------- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: var(--qh-font);
+  font-size: var(--qh-fs-md);
+  line-height: 1.55;
+  color: var(--qh-ink);
+  background: var(--qh-bg);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--qh-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+::selection {
+  background: var(--qh-primary-weak);
+}

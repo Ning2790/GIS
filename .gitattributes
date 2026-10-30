@@ -1,0 +1,19 @@
+# 统一换行符为 LF（Windows 默认 CRLF，不统一会出现"整文件 diff"式假冲突）
+* text=auto eol=lf
+
+*.cpp text eol=lf
+*.h   text eol=lf
+*.hpp text eol=lf
+*.c   text eol=lf
+
+# 二进制文件不做换行转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.zip  binary
+*.xlsx binary
+# shell 脚本一律 LF（Windows 检出 CRLF 会让 shebang 失效）
+*.sh text eol=lf

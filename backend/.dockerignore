@@ -1,0 +1,18 @@
+# 构建上下文瘦身（N15）：镜像里只保留运行所需内容
+.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage*
+htmlcov/
+dev.db
+tests/
+tests_e2e/
+# C++ 扩展是 Windows 产物（Linux 镜像用 Python 回退，见 Dockerfile 注释）
+*.pyd
+*.so
+*.dll
+.env*
+.ruff_cache/
+.mypy_cache/
